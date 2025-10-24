@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sudoku Solver | SkillCraft Technology</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🧠 Sudoku Solver</h1>
+    <p class="subtitle">Automatically solve your Sudoku puzzle with one click!</p>
+
+    <!-- Custom Notification -->
+    <div id="notification" class="notification hidden">
+      <div class="notification-content">
+        <span id="notification-icon"></span>
+        <span id="notification-message"></span>
+        <button id="notification-close">&times;</button>
+      </div>
+    </div>
+
+    <div class="grid" id="sudoku-grid"></div>
+
+    <div class="buttons">
+      <button id="solve-btn">Solve Puzzle</button>
+      <button id="validate-btn">Validate Numbers</button>
+      <button id="clear-btn">Clear Grid</button>
+    </div>
+
+    <footer>
+      <p>Created for <span>SkillCraft Technology</span> | Designed by Kushmitha 💻</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

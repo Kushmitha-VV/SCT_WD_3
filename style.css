@@ -1,0 +1,326 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 25px;
+    padding: 40px;
+    width: 100%;
+    max-width: 650px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+    text-align: center;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.8s ease-out;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1rem;
+    margin-bottom: 35px;
+    opacity: 0.9;
+    color: #f8f9fa;
+    font-weight: 300;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 3px;
+    margin-bottom: 30px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+input {
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+    color: #2d3748;
+    outline: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    border-color: #ff6b6b;
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.4);
+}
+
+input:valid {
+    border-color: #4ecdc4;
+}
+
+input.valid {
+    border-color: #10b981 !important;
+    background: rgba(16, 185, 129, 0.1);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+}
+
+input.invalid {
+    border-color: #ef4444 !important;
+    background: rgba(239, 68, 68, 0.1);
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+    animation: shake 0.5s ease-in-out;
+}
+
+input.predefined {
+    background: rgba(255, 217, 61, 0.2) !important;
+    border-color: #ffd93d !important;
+    font-weight: 700;
+    color: #1a202c !important;
+    cursor: not-allowed;
+}
+
+input.predefined:focus {
+    transform: none !important;
+    box-shadow: 0 0 10px rgba(255, 217, 61, 0.5) !important;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+button {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 140px;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ee5a24, #ff6b6b);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#clear-btn {
+    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+}
+
+#clear-btn:hover {
+    background: linear-gradient(135deg, #44a08d, #4ecdc4);
+}
+
+#validate-btn {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+#validate-btn:hover {
+    background: linear-gradient(135deg, #7c3aed, #8b5cf6);
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    color: #f8f9fa;
+}
+
+footer span {
+    color: #ffd93d;
+    font-weight: 700;
+    text-shadow: 0 0 10px rgba(255, 217, 61, 0.3);
+}
+
+/* Add subtle animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Custom Notification Styles */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    max-width: 400px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.notification.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.notification.hidden {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.notification-content {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+}
+
+.notification.success .notification-content {
+    border-left: 5px solid #10b981;
+}
+
+.notification.error .notification-content {
+    border-left: 5px solid #ef4444;
+}
+
+.notification.info .notification-content {
+    border-left: 5px solid #3b82f6;
+}
+
+#notification-icon {
+    font-size: 1.5rem;
+    min-width: 30px;
+    text-align: center;
+}
+
+.notification.success #notification-icon {
+    color: #10b981;
+}
+
+.notification.error #notification-icon {
+    color: #ef4444;
+}
+
+.notification.info #notification-icon {
+    color: #3b82f6;
+}
+
+#notification-message {
+    flex-grow: 1;
+    color: #1f2937;
+    font-weight: 500;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+#notification-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    min-width: 25px;
+}
+
+#notification-close:hover {
+    background: rgba(107, 114, 128, 0.1);
+    color: #374151;
+}
+
+/* Animation for notification entrance */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    input {
+        height: 35px;
+        font-size: 1.1rem;
+    }
+    
+    button {
+        padding: 12px 20px;
+        font-size: 1rem;
+        min-width: 120px;
+    }
+}
